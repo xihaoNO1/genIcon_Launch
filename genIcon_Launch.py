@@ -28,9 +28,11 @@ def genImg(size):
     if int(size[0]) == int(size[1]):
         img_new = img_max.resize(size,Image.ANTIALIAS)
     else:
-        img_max = img_max.resize((int(size[0]/2),int(size[0]/2)),Image.ANTIALIAS)
+        img_max = img_max.resize((150,150),Image.ANTIALIAS)
+        # img_max = img_max.resize((int(size[0]/2),int(size[0]/2)),Image.ANTIALIAS)
+        #修改背景色
         img_new = Image.new('RGB', size, '#ffffff')
-        location = (int(size[0]/4), int(size[1]/2 - size[0]/4))
+        location = (int(size[0]/2)-70, int(size[1]/2 - 70))
         img_new.paste(img_max, location)
     img_new.save('./%s*%s.png' % size,quality=95)
 
